@@ -28,21 +28,25 @@ bot.getMe(result => {
 var express = require('express')
 const bodyParser = require('body-parser')
 var app = express()
+const axios = require('axios')
 app.use(bodyParser.json())
 app.post('/update', function (req, res) {
     console.log("req.body : ", req.body)
-    const messge = req.body.message
+    const message = req.body.message
     const chatId = messge.chat.id
-    const text = message.text()
+    const text = message.text
     if (Number(text) ==0 || Number(text)){
-        bot.sendMessage(chatId, "Let me think, I should calculate and send you");
-        bot.sendMessage(chatId, "```\n" + converter.getFullCoding(Number(text))+"\n```",{parse_mode:'Markdown'});
+        sendMessage(chatId, "Let me think, I should calculate and send you");
+        sendMessage(chatId, "```\n" + converter.getFullCoding(Number(text))+"\n```",{parse_mode:'Markdown'});
     }else{
-        bot.sendMessage(chatId,'Send me a number, I will send you the programing of this number',{parse_mode:'Markdown'})
+        sendMessage(chatId,'Send me a number, I will send you the programing of this number',{parse_mode:'Markdown'})
     }
     console.log('msg : ', msg.from)
     console.log('req.body : ', req.body)
     res.send('Hello World')
 })
 console.log("Listening port : ", process.env.PORT ||443)
+function sendMessage(id, message) {
+    axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text={message}&parse_mode=Markdown`)
+}
 app.listen(process.env.PORT ||443)
