@@ -100,7 +100,7 @@ function convertCodeToCommand(codeNumber, variableName) {
             command = `${variableName} <- ${variableName}` + " - 1"
             break
         default:
-            command = `IF ${variableName}!=0  GOTO ${getVariableNameFromNumber(codeNumber-2)}`
+            command = `IF ${variableName}!=0  GOTO ${getLabelNameFromNumber(codeNumber-2)}`
             break
     }
     return command
