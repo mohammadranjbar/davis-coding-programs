@@ -90,10 +90,10 @@ function convertCodeToCommand(codeNumber, variableName) {
             command = `${variableName} <- ${variableName}`
             break
         case 1:
-            command = `${variableName} <- ${variableName} + 1`
+            command = `${variableName} <- ${variableName} +1`
             break
         case 2:
-            command = `${variableName} <- ${variableName} - 1`
+            command = `${variableName} <- ${variableName} -1`
             break
         default:
             command = `IF ${variableName}!=0  GOTO ${getVariableNameFromNumber(codeNumber-2)}`
@@ -113,7 +113,7 @@ function getFullCoding(number) {
         const formulaCodeObj = extractCodesFromExponent(primeFactors[x])
         console.log("codeObj : ", formulaCodeObj)
         const formula = getFormulaforExponent(formulaCodeObj)
-        fullFormula = fullFormula+`\n${i}- ${formula}`
+        fullFormula = fullFormula+`\n${i}-${formula}`
         i++
 
     })
