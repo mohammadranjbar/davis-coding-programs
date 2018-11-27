@@ -41,12 +41,12 @@ app.post('/update', function (req, res) {
     }else{
         sendMessage(chatId,'Send me a number, I will send you the programing of this number',{parse_mode:'Markdown'})
     }
-    console.log('msg : ', msg.from)
+    console.log('msg : ', message)
     console.log('req.body : ', req.body)
     res.send('Hello World')
 })
 console.log("Listening port : ", process.env.PORT ||443)
 function sendMessage(id, message) {
-    axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text={message}&parse_mode=Markdown`)
+    axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${message}&parse_mode=Markdown`)
 }
 app.listen(process.env.PORT ||443)
