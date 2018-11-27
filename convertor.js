@@ -4,7 +4,7 @@ const  isPrime = require('prime-number')
 function getPRimeFactors(n) {
     const factorArrays = prime_factors(n)
     console.log("factors array : ", factorArrays)
-    if (factorArrays[factorArrays.length]>1000){
+    if (factorArrays[factorArrays.length-1]>1000){
         throw 'Big Number'
     }
     const factorObject ={};
