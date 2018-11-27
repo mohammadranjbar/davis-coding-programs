@@ -19,6 +19,7 @@
     "express": "^4.16.4",
     "node-telegram-bot-api": "^0.30.0",
     "prime-factors": "^0.1.0",
-    "prime-number": "^0.2.2"
+    "prime-number": "^0.2.2",
+    "querystring": "^0.2.0"
   }
 }
