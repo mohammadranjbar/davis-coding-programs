@@ -33,7 +33,7 @@ app.use(bodyParser.json())
 app.post('/update', function (req, res) {
     console.log("req.body : ", req.body)
     const message = req.body.message
-    const chatId = messge.chat.id
+    const chatId = message.chat.id
     const text = message.text
     if (Number(text) ==0 || Number(text)){
         sendMessage(chatId, "Let me think, I should calculate and send you");
