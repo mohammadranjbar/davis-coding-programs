@@ -30,6 +30,7 @@ const bodyParser = require('body-parser')
 var app = express()
 app.use(bodyParser.json())
 app.post('/update', function (req, res) {
+    console.log("req.body : ", req.body)
     const messge = req.body.message
     const chatId = messge.chat.id
     const text = message.text()
