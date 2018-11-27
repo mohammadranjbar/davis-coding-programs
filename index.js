@@ -1,6 +1,6 @@
 const token = '766202188:AAHytXhH9sg6_JzcH0XAZg3Z_f40rmhAhqU';
 const converter = require('./convertor')
-const querystring = require("querystring");
+// const querystring = require("querystring");
 var express = require('express')
 const bodyParser = require('body-parser')
 var app = express()
@@ -25,6 +25,7 @@ app.post('/update', function (req, res) {
 })
 console.log("Listening port : ", process.env.PORT ||443)
 function sendMessage(id, message) {
-   return axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${querystring.stringify(message)}&parse_mode=Markdown`)
+   // return axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${querystring.stringify(message)}&parse_mode=Markdown`)
+   return axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${message}&parse_mode=Markdown`)
 }
 app.listen(process.env.PORT ||3000)
