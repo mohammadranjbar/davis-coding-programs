@@ -16,7 +16,7 @@ app.post('/update',  function (req, res) {
             .then((result ) => {
                 try{
                     const coding = converter.getFullCoding(Number(text))
-                    sendMessage(chatId, "Coding fot number : " + text +" is : \n"+
+                    sendMessage(chatId, "Coding for number : " + text +" is : \n"+
                     "```\n" + coding+"\n```");
                 }catch (err){
                     sendMessage(chatId, "You entered number with big(>1000) primitive factor, I have not enouf resource to calculate that");
