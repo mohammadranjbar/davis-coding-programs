@@ -25,6 +25,6 @@ app.post('/update', function (req, res) {
 })
 console.log("Listening port : ", process.env.PORT ||443)
 function sendMessage(id, message) {
-   return axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${message}&parse_mode=Markdown`)
+   return axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${message}`)
 }
 app.listen(process.env.PORT ||443)
