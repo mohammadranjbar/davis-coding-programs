@@ -124,5 +124,4 @@ function getFullCoding(number) {
     return fullFormula
 }
 // console.log("getLabelNameFromNumber( ) : ", getFormulaforExponent(extractCodesFromExponent(1407)))
-console.log('full formula : ', getFullCoding(746182))
 module.exports = {getFullCoding}
