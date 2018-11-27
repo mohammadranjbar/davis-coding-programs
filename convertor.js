@@ -3,6 +3,10 @@ const  isPrime = require('prime-number')
 
 function getPRimeFactors(n) {
     const factorArrays = prime_factors(n)
+    console.log("factors array : ", factorArrays)
+    if (factorArrays[factorArrays.length]>1000){
+        throw 'Big Number'
+    }
     const factorObject ={};
     factorArrays.forEach(x =>{
         if(factorObject[x]){
@@ -120,5 +124,5 @@ function getFullCoding(number) {
     return fullFormula
 }
 // console.log("getLabelNameFromNumber( ) : ", getFormulaforExponent(extractCodesFromExponent(1407)))
-console.log('full formula : ', getFullCoding(67108863))
+console.log('full formula : ', getFullCoding(746182))
 module.exports = {getFullCoding}

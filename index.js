@@ -6,7 +6,7 @@ const bodyParser = require('body-parser')
 var app = express()
 const axios = require('axios')
 app.use(bodyParser.json())
-app.post('/update', function (req, res) {
+app.post('/update',  function (req, res) {
     console.log("req.body : ", req.body)
     const message = req.body.message
     const chatId = message.chat.id
@@ -14,7 +14,13 @@ app.post('/update', function (req, res) {
     if (Number(text) ==0 || Number(text)){
         sendMessage(chatId, "Let me think, I should calculate and send result to you ....")
             .then((result ) => {
-                sendMessage(chatId, "```\n" + converter.getFullCoding(Number(text))+"\n```",{parse_mode:'Markdown'});
+                try{
+                    const coding = converter.getFullCoding(Number(text))
+                    sendMessage(chatId, "```\n" + coding+"\n```");
+                }catch (err){
+                    sendMessage(chatId, "You entered number with big(>1000) primitive factor, I have not enouf resource to calculate that");
+
+                }
             })
     }else{
         sendMessage(chatId,'Send me a number, I will send you the programing of this number',{parse_mode:'Markdown'})
