@@ -12,7 +12,7 @@ app.post('/update', function (req, res) {
     const chatId = message.chat.id
     const text = message.text
     if (Number(text) ==0 || Number(text)){
-        sendMessage(chatId, "Let me think, I should calculate and send result you ....")
+        sendMessage(chatId, "Let me think, I should calculate and send result to you ....")
             .then((result ) => {
                 sendMessage(chatId, "```\n" + converter.getFullCoding(Number(text))+"\n```",{parse_mode:'Markdown'});
             })
@@ -25,6 +25,6 @@ app.post('/update', function (req, res) {
 })
 console.log("Listening port : ", process.env.PORT ||443)
 function sendMessage(id, message) {
-    axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${message}&parse_mode=Markdown`)
+   return axios.get(`https://api.telegram.org/bot${token}/sendMessage?chat_id=${id}&text=${message}&parse_mode=Markdown`)
 }
 app.listen(process.env.PORT ||443)
